@@ -1,7 +1,10 @@
-import HttpServer from '../infra/http/HttpServerSingleton';
+import HttpServerSingleton from '../infra/http/HttpServerSingleton';
 import MainController from '../controller/MainController';
 import mainMiddleware from '../middleware/main.middleware ';
 
-const mainController = new MainController();
-
-HttpServer.createRouterGet({ url: "/", callback: mainController.getMessage, middleware: [mainMiddleware] });
+export default class MainRoutes {
+  constructor() {
+    const mainController = new MainController();
+    HttpServerSingleton.getInstance().createRouterGet({ url: "/", callback: mainController.getMessage, middleware: [mainMiddleware] });
+  }
+}
