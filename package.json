@@ -1,7 +1,7 @@
 {
-  "name": "nuvemgestor",
+  "name": "templates",
   "version": "1.0.0",
-  "description": "Sistemma Oficina Integrada Nuvem Gestor",
+  "description": "Create Templates the Modules Node",
   "main": "src/server.js",
   "scripts": {
     "dev:server": "nodemon",
