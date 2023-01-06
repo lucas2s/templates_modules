@@ -1,7 +1,18 @@
 import ExpressHttpServer from './ExpressHttpServer';
-import FastifyHttpServer from './FastifyHttpServer';
-import RestifyHttpServer from './RestifyHttpServer';
+import IHttpServer from './IHttpServerAdapter';
 
-const HttpServer = new ExpressHttpServer();
-export default HttpServer;
+export default class HttpServerSingleton {
+
+  private static instance: IHttpServer;
+  constructor(httpServer: IHttpServer = new ExpressHttpServer()) {
+    if (!HttpServerSingleton.instance) {
+      HttpServerSingleton.instance = httpServer;
+    }
+    return HttpServerSingleton.instance;
+  }
+
+  public static getInstance(): IHttpServer {
+    return HttpServerSingleton.instance;
+  }
+}
 
